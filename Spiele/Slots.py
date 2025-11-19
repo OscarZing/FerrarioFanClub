@@ -1,5 +1,5 @@
 def slots():
-    import 
+    import random
     
     print('Wilkommen zum Slot Machine Spiel!')
 
