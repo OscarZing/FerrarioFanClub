@@ -1,1 +1,1 @@
-print('Oscar R Set Up')
+print('Oscar R Set Up!')
