@@ -16,10 +16,12 @@ def slots():
 
         if slot_1 == slot_2 == slot_3:
             if slot_1 == 6:
-                print("Mega Jackpot! You win the grand prize!")
-            print("Jackpot! You win!")
+                print("Mega Jackpot!")
+            print("Jackpot!")
 
         else:
-            print("Better luck next time!")
+            print("Nächstes mal gewinnst du!")
+
+        
 
 slots()
