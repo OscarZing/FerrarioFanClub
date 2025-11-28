@@ -1,3 +1,2 @@
-import Spiele.Slots
-import Spiele.Roulette
-Spiele.Slots.slots()
+from Spiele.Slots import Slots    
+slots()
