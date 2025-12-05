@@ -13,7 +13,7 @@ def slots():
             print('Dein aktueller Kontostand ist:', Kontostand)
             Kontostand -=5
             if Kontostand < 5:           
-                print("Du hast nicht genug moneten, um zu spielen!")
+                print("Du hast nicht genug moneten, um weiterzuspielen!")
                 break
             else:
                 slot_1 = random.randint(0,6)
@@ -39,14 +39,17 @@ def slots():
                     print("Nächstes mal gewinnst du!")
                     print("Dein neuer Kontostand ist:", Kontostand)
 
-                stopInput = input("Möchtest du nochmal spielen? (j/n): ")
-                if stopInput == 'j':
-                    continue
-                elif stopInput == 'n':
-                    break
-                else:
-                    print("Ungültige Eingabe, Spiel wird beendet.")
-                    break
+                while input != 'j' or input != 'n':
+                    stopInput = input("Möchtest du nochmal spielen? (j/n): ")
+                    if stopInput == 'j':
+                        break
+                    elif stopInput == 'n':
+                        break
+                        
+                    if stopInput != 'j' and stopInput != 'n':
+                        input("Ungültige Eingabe, wähle erneut.")
+                        
+                    
     elif spielWahl == 'n':
         print("Spiel wird beendet.")
     else:
