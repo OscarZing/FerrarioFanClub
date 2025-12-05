@@ -1,0 +1,1 @@
+Kontostand = 1000
