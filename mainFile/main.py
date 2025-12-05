@@ -1,2 +1,2 @@
-from Spiele.Slots import Slots    
+from Slots import slots  
 slots()
