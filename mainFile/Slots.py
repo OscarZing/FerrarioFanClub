@@ -39,15 +39,26 @@ def slots():
                     print("Nächstes mal gewinnst du!")
                     print("Dein neuer Kontostand ist:", Kontostand)
 
-                while input != 'j' or input != 'n':
-                    stopInput = input("Möchtest du nochmal spielen? (j/n): ")
-                    if stopInput == 'j':
-                        break
-                    elif stopInput == 'n':
-                        break
+                weiterSpielen = input("Möchtest du nochmal spielen? (j/n): ")
+
+                if weiterSpielen == 'j':
+                    continue
+                elif weiterSpielen == 'n':
+                    print("Spiel wird beendet.")
+                    break 
+                else:
+                    print("Ungültige Eingabe, Spiel wird beendet.")
+                    break           
+
+                # while input != 'j' or input != 'n':
+                #     stopInput = input("Möchtest du nochmal spielen? (j/n): ")
+                #     if stopInput == 'j':
+                #         break
+                #     elif stopInput == 'n':
+                #         break
                         
-                    if stopInput != 'j' and stopInput != 'n':
-                        input("Ungültige Eingabe, wähle erneut.")
+                #     if stopInput != 'j' and stopInput != 'n':
+                #         input("Ungültige Eingabe, wähle erneut.")
                         
                     
     elif spielWahl == 'n':
