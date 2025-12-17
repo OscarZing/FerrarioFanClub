@@ -9,7 +9,7 @@ def slots():
 
         symbols = ['🍒', '🍋', '🍊', '🍉', '⭐', '🔔', '7️⃣ ']
 
-        while True:
+        while spielWahl == 'j':
             print('Dein aktueller Kontostand ist:', Kontostand)
             Kontostand -=5
             if Kontostand < 5:           
@@ -39,27 +39,18 @@ def slots():
                     print("Nächstes mal gewinnst du!")
                     print("Dein neuer Kontostand ist:", Kontostand)
 
-                weiterSpielen = input("Möchtest du nochmal spielen? (j/n): ")
+                spielWahl = input("Möchtest du nochmal spielen? (j/n): ")
 
-                if weiterSpielen == 'j':
+                if spielWahl == 'j':
                     continue
-                elif weiterSpielen == 'n':
+                elif spielWahl == 'n':
                     print("Spiel wird beendet.")
                     break 
                 else:
-                    print("Ungültige Eingabe, Spiel wird beendet.")
-                    break           
-
-                # while input != 'j' or input != 'n':
-                #     stopInput = input("Möchtest du nochmal spielen? (j/n): ")
-                #     if stopInput == 'j':
-                #         break
-                #     elif stopInput == 'n':
-                #         break
-                        
-                #     if stopInput != 'j' and stopInput != 'n':
-                #         input("Ungültige Eingabe, wähle erneut.")
-                        
+                    while spielWahl != 'j' and spielWahl != 'n':
+                        print("Ungültige Eingabe.")
+                        spielWahl = input("Möchtest du nochmal spielen? (j/n): ")  
+        print("Spiel wird beendet.")
                     
     elif spielWahl == 'n':
         print("Spiel wird beendet.")
