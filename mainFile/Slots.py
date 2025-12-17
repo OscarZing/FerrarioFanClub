@@ -31,8 +31,8 @@ def slots():
                         print("Dein neuer Kontostand ist:", Kontostand)
 
                     else:
-                        Kontostand += 205   
-                        print("Jackpot! Du hast 200 moneten gewonnen!")
+                        Kontostand += 105   
+                        print("Jackpot! Du hast 100 moneten gewonnen!")
                         print("Dein neuer Kontostand ist:", Kontostand)
 
                 else:
