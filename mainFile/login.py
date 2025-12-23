@@ -54,8 +54,9 @@ if __name__ == "__main__":
         passloginfile.writelines(userid + "\n")
         passloginfile.close()
 
-loginfile = open("FerrarioFanClub/mainFile/login.txt", "r")
-userid = loginfile.readline()
+    loginfile = open("FerrarioFanClub/mainFile/login.txt", "r")
+    userid = loginfile.readline()
+    """
 
 
 
@@ -63,3 +64,4 @@ userid = loginfile.readline()
     for x in f:
         print(x)
     f.close() """
+

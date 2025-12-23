@@ -60,5 +60,5 @@ def roulette():
     else:
         print("Ungültige Eingabe, Spiel wird beendet.")
 
-roulette()
+#roulette()
 #wie und uf was alles söt mer setzte chöne? also ob nur zahle oder au Farb etc. bzw so strass und was es sust no für möglichkeite git?

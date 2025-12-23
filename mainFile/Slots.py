@@ -56,5 +56,5 @@ def slots():
         print("Spiel wird beendet.")
     else:
         print("Ungültige Eingabe, Spiel wird beendet.")
-
-slots()
+if __name__ == "__main__":
+    slots()
