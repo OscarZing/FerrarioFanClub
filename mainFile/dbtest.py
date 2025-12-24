@@ -93,10 +93,10 @@ def delete_all_users():
 
 if __name__ == "__main__":
     
-
-    delete_all_users()
-    show_table('user')
-    show_table('bank')
+    
+    create_table('user')
+    create_table('bank')
+    
 
 
     

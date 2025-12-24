@@ -167,6 +167,7 @@ def roulette(taschengeld):
             
     else:
         print("Ungültige Eingabe, Spiel wird beendet.")
+    
+    return taschengeld
 
 
-#wie und uf was alles söt mer setzte chöne? also ob nur zahle oder au Farb etc. bzw so strass und was es sust no für möglichkeite git?
