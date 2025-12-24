@@ -1,9 +1,9 @@
 
-def roulette():
+def roulette(Taschengeld):
     import random
     #from Bank import Kontostand
 
-    Kontostand = 1000  # Placeholder for user's balance, replace with actual balance retrieval
+    #Kontostand = 1000  # Placeholder for user's balance, replace with actual balance retrieval
 
     print ('Wilkommen zum Roulette Spiel!')
     spielwahl = input("Willst du spielen? (j/n): ")
@@ -19,9 +19,9 @@ def roulette():
                 
                 bet=int(input("Wie viel möchtest du setzen? "))
 
-                if bet > Kontostand:
+                if bet > Taschengeld:
 
-                    print("Dein aktueller Kontostand ist:", Kontostand)
+                    print("Dein aktueller Kontostand ist:", Taschengeld)
                     print("Du hast nicht genug moneten!")
                     continue
 
@@ -37,11 +37,11 @@ def roulette():
                 tipp=int(input("Auf welche Zahl möchtest du setzen? (1-36): "))
                 print("Die Gewinnzahl ist:", gewinnzahl)
                 if tipp == gewinnzahl:
-                    Kontostand += bet * 35
+                    Taschengeld += bet * 35
                     print("Herzlichen Glückwunsch! Du hast", bet * 35, "moneten gewonnen!")
                 else:
-                    Kontostand -= bet
-                    print("Leider verloren. Dein neuer Kontostand ist:", Kontostand)
+                    Taschengeld -= bet
+                    print("Leider verloren. Dein neuer Kontostand ist:", Taschengeld)
                 
                 spielwahl = input("Willst du nochmals spielen? (j/n): ")
                 if spielwahl == 'j':
@@ -61,9 +61,9 @@ def roulette():
                 
                 bet=int(input("Wie viel möchtest du setzen? "))
 
-                if bet > Kontostand:
+                if bet > Taschengeld:
 
-                    print("Dein aktueller Kontostand ist:", Kontostand)
+                    print("Dein aktueller Kontostand ist:", Taschengeld)
                     print("Du hast nicht genug moneten!")
                     continue
 
@@ -86,14 +86,14 @@ def roulette():
                     else:
                         print("Die Gewinnfarbe ist: Grün (00)")
                 if tipp == 'r' and gewinnzahl in [1,3,5,7,9,12,14,16,18,21,23,25,27,28,30,32,34,36] or tipp == 's' and gewinnzahl in [2,4,6,8,10,11,13,15,17,19,20,22,24,26,29,31,33,35]:
-                    Kontostand += bet * 2
+                    Taschengeld += bet * 2
                     print_gewinnfarbe(gewinnzahl)
                     print("Herzlichen Glückwunsch! Du hast", bet * 2, "moneten gewonnen!")
 
                 elif tipp == 'r' and gewinnzahl not in [1,3,5,7,9,12,14,16,18,21,23,25,27,28,30,32,34,36] or tipp == 's' and gewinnzahl not in [2,4,6,8,10,11,13,15,17,19,20,22,24,26,29,31,33,35]:
-                    Kontostand -= bet
+                    Taschengeld -= bet
                     print_gewinnfarbe(gewinnzahl)
-                    print("Leider verloren. Dein neuer Kontostand ist:", Kontostand)
+                    print("Leider verloren. Dein neuer Kontostand ist:", Taschengeld)
 
                 else:
                     print("Ungültige Eingabe.")
@@ -115,9 +115,9 @@ def roulette():
                 
                 bet=int(input("Wie viel möchtest du setzen? "))
 
-                if bet > Kontostand:
+                if bet > Taschengeld:
 
-                    print("Dein aktueller Kontostand ist:", Kontostand)
+                    print("Dein aktueller Kontostand ist:", Taschengeld)
                     print("Du hast nicht genug moneten!")
                     continue
 
@@ -141,13 +141,13 @@ def roulette():
                         print("Die Gewinnzahl ist: 00 (weder gerade noch ungerade)")
                 if tipp == 'g' and gewinnzahl % 2 == 0 and gewinnzahl != 0 or tipp == 'u' and gewinnzahl % 2 == 1:
                     print_gewinnzahl(gewinnzahl)
-                    Kontostand += bet * 2
+                    Taschengeld += bet * 2
                     print("Herzlichen Glückwunsch! Du hast", bet * 2, "moneten gewonnen!")
 
                 elif tipp == 'g' and (gewinnzahl % 2 == 1 or gewinnzahl == 0) or tipp == 'u' and (gewinnzahl % 2 == 0 and gewinnzahl != 0):
                     print_gewinnzahl(gewinnzahl)
-                    Kontostand -= bet
-                    print("Leider verloren. Dein neuer Kontostand ist:", Kontostand)
+                    Taschengeld -= bet
+                    print("Leider verloren. Dein neuer Kontostand ist:", Taschengeld)
 
                 else:
                     print("Ungültige Eingabe.")
