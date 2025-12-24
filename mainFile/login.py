@@ -6,7 +6,9 @@ def login():
     password = input("Gib dein Passwort ein: ")
     
     if dbtest.check_password(username, password)==True:
-        return True
+        return True, username
+    else:
+        return False, ""
     
     
     

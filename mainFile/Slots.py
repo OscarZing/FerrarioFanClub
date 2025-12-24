@@ -1,7 +1,14 @@
+
+
+
 def slots():
     import random
     from Bank import Kontostand
+    import dbtest
+    from main import username
+
     
+
     print('Wilkommen zum Slot Machine Spiel!')
     print('Jeder Spielzug kostet 5 moneten.')
     spielWahl = input('Willst du spielen? (j/n): ')

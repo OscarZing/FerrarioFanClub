@@ -63,12 +63,22 @@ def show_table(table_name):
     for row in c.execute(sql):
         print(row)
 
+def get_balance(username):
+    a = "'"
+    sql=('SELECT kontostand FROM bank WHERE user = ' + a + username + a)
+    c.execute(sql)
+    balance = c.fetchone()
+    return int(balance[0])
 
-def updete_bank(username, amount):
+def update_bank(username, amount):
     a = "'"
     c.execute('UPDATE bank SET kontostand = kontostand + (' + str(amount) + ') WHERE user = ' + a + username + a)
     conn.commit()
 
+def reset_balance(username):
+    a = "'"
+    c.execute('UPDATE bank SET kontostand = 1000 WHERE user = ' + a + username + a)
+    conn.commit()
 
 def delete_user(username):
     a = "'"
@@ -82,9 +92,11 @@ def delete_all_users():
     conn.commit()
 
 if __name__ == "__main__":
+    
 
-
-    insert_user('testuser', 'testpass')
+    delete_all_users()
     show_table('user')
     show_table('bank')
+
+
     
