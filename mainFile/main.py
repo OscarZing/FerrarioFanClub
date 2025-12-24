@@ -2,8 +2,9 @@
 from Slots import slots 
 from login import login, signup
 import dbtest
+import Bank
 logsecc=False
-
+taschengeld=100
 dbtest.show_table('user')
 
 
@@ -31,4 +32,14 @@ while logsecc==False:
         logopin=input("Möchtest du dich einloggen (l) oder registrieren (r)? ")
         continue
 
-print(username)
+print("Hallo", username, "!")
+
+while True:
+
+    option = input("Möchtest du in die Bank (b) gehen oder Slots (s) spielen?: ")
+
+    if option == 'b':
+        taschengeld = Bank.bank(username, taschengeld)
+
+    elif option == 's':
+        taschengeld = slots(taschengeld)

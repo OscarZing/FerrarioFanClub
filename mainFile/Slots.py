@@ -1,13 +1,8 @@
+import random
 
 
 
-def slots():
-    import random
-    from Bank import Kontostand
-    import dbtest
-    from main import username
-
-    
+def slots(taschengeld):
 
     print('Wilkommen zum Slot Machine Spiel!')
     print('Jeder Spielzug kostet 5 moneten.')
@@ -17,9 +12,9 @@ def slots():
         symbols = ['🍒', '🍋', '🍊', '🍉', '⭐', '🔔', '7️⃣ ']
 
         while spielWahl == 'j':
-            print('Dein aktueller Kontostand ist:', Kontostand)
-            Kontostand -=5
-            if Kontostand < 5:           
+            print('du hast:', taschengeld,'moneten.')
+            taschengeld -=5
+            if taschengeld < 5:           
                 print("Du hast nicht genug moneten, um weiterzuspielen!")
                 break
             else:
@@ -33,19 +28,18 @@ def slots():
 
                 if slot_1 == slot_2 == slot_3:
                     if slot_1 == 6:
-                        Kontostand += 1005
+                        taschengeld += 1005
                         print("Mega Jackpot! Du hast 1000 moneten gewonnen!")
-                        print("Dein neuer Kontostand ist:", Kontostand)
+                        print("Du hast jetzt:", taschengeld,'moneten.')
 
                     else:
-                        Kontostand += 105   
+                        taschengeld += 105   
                         print("Jackpot! Du hast 100 moneten gewonnen!")
-                        print("Dein neuer Kontostand ist:", Kontostand)
+                        print("Du hast jetzt:", taschengeld,'moneten.')
 
                 else:
                     print("Nächstes mal gewinnst du!")
-                    print("Dein neuer Kontostand ist:", Kontostand)
-
+                    print("Du hast jetzt:", taschengeld,'moneten.')
                 spielWahl = input("Möchtest du nochmal spielen? (j/n): ")
 
                 if spielWahl == 'j':
@@ -57,12 +51,13 @@ def slots():
                     while spielWahl != 'j' and spielWahl != 'n':
                         print("Ungültige Eingabe.")
                         spielWahl = input("Möchtest du nochmal spielen? (j/n): ")  
-        print("Spiel wird beendet.")
                     
     elif spielWahl == 'n':
         print("Spiel wird beendet.")
     else:
         print("Ungültige Eingabe, Spiel wird beendet.")
+    
+    return taschengeld
 
 
 if __name__ == "__main__":
