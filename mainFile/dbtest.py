@@ -47,6 +47,7 @@ def insert_user(username, password):
         c.execute('INSERT INTO bank (user, kontostand) VALUES (' + a + username + a + ', 1000)')
         conn.commit()
 
+
 def show_table(table_name):
     sql = 'SELECT * FROM ' + table_name
     print(sql)
@@ -68,21 +69,6 @@ def delete_user(username):
 
 if __name__ == "__main__":
 
-
-    # cur is an sqlite3.Cursor object
-    '''if check_if_table_exists('user') == False:
-        c.executescript("""
-            BEGIN;
-            CREATE TABLE user(username, password);
-            COMMIT;
-        """)'''
-    
-    '''if check_if_table_exists('bank') == False:
-        c.executescript("""
-            BEGIN;
-            CREATE TABLE bank(user, kontostand);
-            COMMIT;
-        """)'''
 
     insert_user('1234', '1234') 
     delete_user('123')
