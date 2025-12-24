@@ -35,6 +35,15 @@ def check_if_user_exists(username):
     else:
         return True
 
+def check_password(username, password):
+    a = "'"
+    sql = 'SELECT * FROM user WHERE username = ' + a + username + a + ' AND password = ' + a + password + a
+    c.execute(sql)
+    if c.fetchone() is None:
+        return False
+    else:
+        return True
+
 
 def insert_user(username, password):
     if check_if_user_exists(username) == True:
@@ -54,10 +63,12 @@ def show_table(table_name):
     for row in c.execute(sql):
         print(row)
 
+
 def updete_bank(username, amount):
     a = "'"
     c.execute('UPDATE bank SET kontostand = kontostand + (' + str(amount) + ') WHERE user = ' + a + username + a)
     conn.commit()
+
 
 def delete_user(username):
     a = "'"
@@ -65,13 +76,15 @@ def delete_user(username):
     c.execute('DELETE FROM bank WHERE user = ' + a + username + a)
     conn.commit()
 
-
+def delete_all_users():
+    c.execute('DELETE FROM user')
+    c.execute('DELETE FROM bank')
+    conn.commit()
 
 if __name__ == "__main__":
 
 
-    insert_user('1234', '1234') 
-    delete_user('123')
+    insert_user('testuser', 'testpass')
     show_table('user')
     show_table('bank')
     

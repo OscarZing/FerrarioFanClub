@@ -1,34 +1,44 @@
 # lasst mich koche
-from dbtest import *
+import dbtest
 
 def login():
     username = input("Gib deinen Usernamen ein: ")
     password = input("Gib dein Passwort ein: ")
     
-
-    with open("FerrarioFanClub/mainFile/login.txt", "r") as f:
+    if dbtest.check_password(username, password)==True:
+        return True
+    
+    
+    
+    '''with open("FerrarioFanClub/mainFile/login.txt", "r") as f: ---de shit isch wenn man mit de Textdatei arbeitet---
         for x in f:
            if x.strip() == username + "//" + password:
                print("Erfolgreich eingeloggt!")
                return True
         print("Username nicht gefunden oder Passwort falsch.")
-        return False
+        return False'''
         
 def signup():
     username = input("Wähle einen Usernamen: ")
 
-    with open("FerrarioFanClub/mainFile/login.txt", "r+") as f:
+    if dbtest.check_if_user_exists(username) == True:
+        return False
+    else:
+        password = input("Wähle ein passwort:")
+        dbtest.insert_user(username,password)
+        return True
+
+    '''with open("FerrarioFanClub/mainFile/login.txt", "r+") as f: ---de shit isch wenn man mit de Textdatei arbeitet---
         for x in f:
             if x.strip().startswith(username + "//"):
                 print("Username existiert bereits. Wähle einen anderen.")
                 return False
         password = input("Wähle ein Passwort: ")
         f.writelines(username + "//" + password + "\n")
-        return True
+        return True'''
 
             
-    
-    #open("FerrarioFanClub/mainFile/login.txt", "a").writelines(username + "//" + password + "\n")
+
     
     
     
