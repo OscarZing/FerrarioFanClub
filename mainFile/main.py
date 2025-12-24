@@ -1,4 +1,4 @@
-
+from Roulette import roulette
 from Slots import slots 
 from login import login, signup
 import dbtest
@@ -36,10 +36,12 @@ print("Hallo", username, "!")
 
 while True:
 
-    option = input("Möchtest du in die Bank (b) gehen oder Slots (s) spielen?: ")
+    option = input("Möchtest du in die Bank (b), Slots (s) spielen oder Roulette (r) spielen?: ")
 
     if option == 'b':
         taschengeld = Bank.bank(username, taschengeld)
 
     elif option == 's':
         taschengeld = slots(taschengeld)
+    elif option == 'r':
+        taschengeld = roulette(taschengeld)
