@@ -1,17 +1,21 @@
 import sqlite3
 conn = sqlite3.connect('ferrariofanclub.db')
 c = conn.cursor()
-def crate_table(tablename):
-    match tablename:
-        case 'user':
-            sql = "CREATE TABLE user(username PRIMARY KEY, password)"
-            
-        case 'bank':
-            sql = "CREATE TABLE bank(user PRIMARY KEY, kontostand)"
+def create_table(tablename):
+    if check_if_table_exists(tablename) == True:
+        print("Tabelle " + tablename + " existiert bereits.")
+        return
+    else:
+        match tablename:
+            case 'user':
+                sql = "CREATE TABLE user(username PRIMARY KEY, password)"
+                
+            case 'bank':
+                sql = "CREATE TABLE bank(user PRIMARY KEY, kontostand)"
 
     c.execute(sql)
     conn.commit()
-
+ 
 
 def check_if_table_exists(table_name):
     sql = 'SELECT * FROM ' + table_name
@@ -26,10 +30,10 @@ def check_if_user_exists(username):
     a = "'"
     sql = 'SELECT * FROM user WHERE username = ' + a + username + a
     c.execute(sql)
-    if c.fetchone() is not None:
-        return True
-    else:
+    if c.fetchone() is None:
         return False
+    else:
+        return True
 
 
 def insert_user(username, password):
@@ -61,6 +65,7 @@ def delete_user(username):
     conn.commit()
 
 
+
 if __name__ == "__main__":
 
 
@@ -79,7 +84,8 @@ if __name__ == "__main__":
             COMMIT;
         """)'''
 
-   
+    insert_user('1234', '1234') 
+    delete_user('123')
     show_table('user')
     show_table('bank')
     
