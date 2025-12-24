@@ -11,10 +11,9 @@ def login():
            if x.strip() == username + "//" + password:
                print("Erfolgreich eingeloggt!")
                return True
-           print("Username nicht gefunden oder Passwort falsch.")
-           return False
-        f.close()
-    
+        print("Username nicht gefunden oder Passwort falsch.")
+        return False
+        
 def signup():
     username = input("Wähle einen Usernamen: ")
 
