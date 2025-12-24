@@ -33,6 +33,7 @@ while logsecc==False:
         continue
 
 print("Hallo", username, "!")
+print("Du hast", taschengeld, "moneten in der Tasche.")
 
 while True:
 
@@ -43,5 +44,6 @@ while True:
 
     elif option == 's':
         taschengeld = slots(taschengeld)
+
     elif option == 'r':
         taschengeld = roulette(taschengeld)

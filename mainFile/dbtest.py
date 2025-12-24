@@ -11,11 +11,19 @@ def create_table(tablename):
                 sql = "CREATE TABLE user(username PRIMARY KEY, password)"
                 
             case 'bank':
-                sql = "CREATE TABLE bank(user PRIMARY KEY, kontostand)"
+                sql = "CREATE TABLE bank(user PRIMARY KEY, kontostand, schulden DEFAULT 0)"
 
     c.execute(sql)
     conn.commit()
  
+def delete_table(tablename):
+    if check_if_table_exists(tablename) == False:
+        print("Tabelle " + tablename + " existiert nicht.")
+        return
+    else:
+        sql = 'DROP TABLE ' + tablename
+        c.execute(sql)
+        conn.commit()
 
 def check_if_table_exists(table_name):
     sql = 'SELECT * FROM ' + table_name
@@ -70,10 +78,23 @@ def get_balance(username):
     balance = c.fetchone()
     return int(balance[0])
 
+def get_debt(username):
+    a = "'"
+    sql=('SELECT schulden FROM bank WHERE user = ' + a + username + a)
+    c.execute(sql)
+    debt = c.fetchone()
+    return int(debt[0])
+
 def update_bank(username, amount):
     a = "'"
     c.execute('UPDATE bank SET kontostand = kontostand + (' + str(amount) + ') WHERE user = ' + a + username + a)
     conn.commit()
+
+def update_debt(username, amount):
+    a = "'"
+    c.execute('UPDATE bank SET schulden = schulden + (' + str(amount) + ') WHERE user = ' + a + username + a)
+    conn.commit()
+
 
 def reset_balance(username):
     a = "'"
@@ -93,10 +114,11 @@ def delete_all_users():
 
 if __name__ == "__main__":
     
+    insert_user('testuser','testpass')
+    show_table('user')
+    show_table('bank')
     
-    create_table('user')
-    create_table('bank')
-    
+
 
 
     
