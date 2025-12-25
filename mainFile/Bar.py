@@ -1,5 +1,7 @@
 import dbtest
 
+
+
 def menu():
     print("Hier ist die Getränkekarte:")
     print("-----------------------------------")
@@ -20,7 +22,7 @@ def bar(username, taschengeld):
 
 
     if wahl == 'j':
-        
+
         while wahl == 'j':
             menu()
             drinkwahl=input('welchen drink möchten sie bestellen? geben die die Nummer ein: ')
@@ -28,16 +30,24 @@ def bar(username, taschengeld):
                 print("Ungültige Eingabe. Bitte geben Sie eine gültige Nummer ein.")
                 continue
             else:
-                print("Du hast", dbtest.get_drink_name(drinkwahl), "bestellt.")
-                taschengeld -= dbtest.get_drink_price(drinkwahl)
+                print("Du hast", dbtest.get_drinkname(drinkwahl), "bestellt.")
+                taschengeld -= dbtest.get_price(drinkwahl)
                 print("Du hast jetzt:", taschengeld, "moneten in der Tasche.")
 
-
-            
-
-
+            wahl = input("Möchtest du noch einen Drink bestellen? (j/n): ")
+            if wahl == 'j':
+                continue
+            elif wahl == 'n':
+                print("Bar wird verlassen.")
+            else:
+                while wahl != 'j' and wahl != 'n':
+                        print("Ungültige Eingabe.")
+                        wahl = input("Möchtest du noch einen Drink bestellen? (j/n): ")
+                
+                
+    
 
 
 if __name__ == "__main__":
    
-    bar()
+    bar("1", 100)
