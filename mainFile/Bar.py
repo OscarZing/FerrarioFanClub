@@ -29,10 +29,19 @@ def bar(username, taschengeld):
             if int(drinkwahl) not in [num[0] for num in dbtest.get_all_numbers()]:
                 print("Ungültige Eingabe. Bitte geben Sie eine gültige Nummer ein.")
                 continue
+
+
+
             else:
                 print("Du hast", dbtest.get_drinkname(drinkwahl), "bestellt.")
                 taschengeld -= dbtest.get_price(drinkwahl)
+                alk = dbtest.get_alcohol_content(drinkwahl) * dbtest.get_volume(drinkwahl)
+                dbtest.update_betrunkenheit(username,alk)
+                
                 print("Du hast jetzt:", taschengeld, "moneten in der Tasche.")
+
+
+
 
             wahl = input("Möchtest du noch einen Drink bestellen? (j/n): ")
             if wahl == 'j':
