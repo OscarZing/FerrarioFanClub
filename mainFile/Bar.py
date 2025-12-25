@@ -37,7 +37,7 @@ def bar(username, taschengeld):
                 taschengeld -= dbtest.get_price(drinkwahl)
                 alk = dbtest.get_alcohol_content(drinkwahl) * dbtest.get_volume(drinkwahl)
                 dbtest.update_betrunkenheit(username,alk)
-                
+                print(dbtest.get_betrunkrnheit(username))
                 print("Du hast jetzt:", taschengeld, "moneten in der Tasche.")
 
 

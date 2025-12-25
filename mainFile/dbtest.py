@@ -81,7 +81,7 @@ def update_betrunkenheit(username, amount):
 
 def get_betrunkrnheit(username):
     a = "'"
-    sql=('SELECT betrunkenheit FROM user WHERE user = ' + a + username + a)
+    sql=('SELECT betrunkenheit FROM user WHERE username = ' + a + username + a)
     c.execute(sql)
     debt = c.fetchone()
     return int(debt[0])
