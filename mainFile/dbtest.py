@@ -177,6 +177,14 @@ def delete_all_users():
     c.execute('DELETE FROM bank')
     conn.commit()
 
+def Start():
+    if check_if_table_exists("user") == False:
+        create_table("user")
+    if check_if_table_exists("bank") == False:
+        create_table("bank")
+    if check_if_table_exists("drinks") == False:
+        create_table("drinks")
+
 if __name__ == "__main__":
     
     

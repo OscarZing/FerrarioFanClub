@@ -10,6 +10,7 @@ taschengeld=100
 start_drinking = 0
 dbtest.show_table('user')
 
+dbtest.Start()
 
 print("Willkommen im Ferrario Fan Club Casino!")
 
