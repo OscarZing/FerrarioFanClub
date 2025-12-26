@@ -3,8 +3,11 @@ from Slots import slots
 from login import login, signup
 import dbtest
 import Bank
+import time
+import Bar
 logsecc=False
 taschengeld=100
+start_drinking = 0
 dbtest.show_table('user')
 
 
@@ -37,10 +40,13 @@ print("Du hast", taschengeld, "moneten in der Tasche.")
 
 while True:
 
-    option = input("Möchtest du in die Bank (b), Slots (s) spielen oder Roulette (r) spielen?: ")
+    option = input("Möchtest du in die Bank (b) Bar (ba), Slots (s) spielen oder Roulette (r) spielen?: ")
 
     if option == 'b':
         taschengeld = Bank.bank(username, taschengeld)
+    
+    if option == "ba":
+        taschengeld, start_drinking = Bar.bar(username,taschengeld,start_drinking)
 
     elif option == 's':
         taschengeld = slots(taschengeld)

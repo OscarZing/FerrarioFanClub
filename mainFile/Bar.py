@@ -1,4 +1,12 @@
 import dbtest
+import time
+
+
+
+def pass_time(p,f):
+    return f-p
+    
+
 
 
 
@@ -14,7 +22,23 @@ def menu():
 
 
 
-def bar(username, taschengeld):
+def bar(username, taschengeld, start_drinking):
+
+
+    timecheck= int(time.time() - start_drinking)
+
+    print(timecheck)
+
+    while dbtest.get_betrunkrnheit(username) != 0:
+                
+        dbtest.update_betrunkenheit(username,-1)
+        timecheck-=1
+        print(dbtest.get_betrunkrnheit(username))
+        print(timecheck)
+
+        if dbtest.get_betrunkrnheit(username) == 0 or timecheck == 0:
+            timecheck = 0
+            break
 
 
     print('Willkommen in der Bar!')
@@ -23,10 +47,19 @@ def bar(username, taschengeld):
 
     if wahl == 'j':
 
+
+        
+
         while wahl == 'j':
             menu()
-            drinkwahl=input('welchen drink möchten sie bestellen? geben die die Nummer ein: ')
-            if int(drinkwahl) not in [num[0] for num in dbtest.get_all_numbers()]:
+            drinkwahl=input('Um was zu bestellen geben sie die Nummer ein: um zurück ins Casino zu gehen geben sie (c) ein: ')
+            
+                 
+            if drinkwahl== "c":
+                return taschengeld, start_drinking
+            
+            
+            elif int(drinkwahl) not in [num[0] for num in dbtest.get_all_numbers()]:
                 print("Ungültige Eingabe. Bitte geben Sie eine gültige Nummer ein.")
                 continue
 
@@ -37,6 +70,7 @@ def bar(username, taschengeld):
                 taschengeld -= dbtest.get_price(drinkwahl)
                 alk = dbtest.get_alcohol_content(drinkwahl) * dbtest.get_volume(drinkwahl)
                 dbtest.update_betrunkenheit(username,alk)
+                start_drinking = int(time.time())
                 print(dbtest.get_betrunkrnheit(username))
                 print("Du hast jetzt:", taschengeld, "moneten in der Tasche.")
 
@@ -48,10 +82,13 @@ def bar(username, taschengeld):
                 continue
             elif wahl == 'n':
                 print("Bar wird verlassen.")
+                return taschengeld, start_drinking
             else:
                 while wahl != 'j' and wahl != 'n':
                         print("Ungültige Eingabe.")
                         wahl = input("Möchtest du noch einen Drink bestellen? (j/n): ")
+    
+    return taschengeld, start_drinking
                 
                 
     
@@ -59,4 +96,7 @@ def bar(username, taschengeld):
 
 if __name__ == "__main__":
    
-    bar("1", 100)
+    dbtest.update_betrunkenheit("1","50")
+
+    x,y = bar("1", "100", 1766769120)
+    

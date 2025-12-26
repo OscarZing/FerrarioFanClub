@@ -148,6 +148,8 @@ def get_debt(username):
     debt = c.fetchone()
     return int(debt[0])
 
+
+
 def update_bank(username, amount):
     a = "'"
     c.execute('UPDATE bank SET kontostand = kontostand + (' + str(amount) + ') WHERE user = ' + a + username + a)
