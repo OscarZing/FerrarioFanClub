@@ -13,11 +13,12 @@ def slots(taschengeld):
 
         while spielWahl == 'j':
             print('du hast:', taschengeld,'moneten.')
-            taschengeld -=5
+            
             if taschengeld < 5:           
                 print("Du hast nicht genug moneten, um weiterzuspielen!")
-                break
+                return taschengeld
             else:
+                taschengeld -=5
                 slot_1 = random.randint(0,6)
                 slot_2 = random.randint(0,6)
                 slot_3 = random.randint(0,6)
@@ -40,6 +41,8 @@ def slots(taschengeld):
                 else:
                     print("Nächstes mal gewinnst du!")
                     print("Du hast jetzt:", taschengeld,'moneten.')
+            
+                
                 spielWahl = input("Möchtest du nochmal spielen? (j/n): ")
 
                 if spielWahl == 'j':
@@ -61,4 +64,4 @@ def slots(taschengeld):
 
 
 if __name__ == "__main__":
-    slots()
+    slots(10)
