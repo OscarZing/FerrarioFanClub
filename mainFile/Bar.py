@@ -1,16 +1,58 @@
 import dbtest
 import time
+import random
 
+def random_events(username):
+    random_event = 100
+    drunk = dbtest.get_betrunkrnheit(username)/100
+    print(drunk)
 
+    random_zahl = random.randint(15,100)
+    
+    print(random_zahl)
 
-def pass_time(p,f):
-    return f-p
+    if random_zahl < drunk:
+        random_event = random.randint(0,9)
+    
+    match random_event:
+        
+        case 0:
+            print("1")
+            random_event = 100
+        case 1:
+            print("2")
+            random_event = 100
+        case 2:
+            print("3")
+            random_event = 100
+        case 3:
+            print("4")
+            random_event = 100
+        case 4:
+            print("5")
+            random_event = 100
+        case 5:
+            print("6")
+            random_event = 100
+        case 6:
+            print("7")
+            random_event = 100
+        case 7:
+            print("8")
+            random_event = 100
+        case 8:
+            print("9")
+            random_event = 100
+        case 9:
+            print("10")
+            random_event = 100
     
 
 
 
 
 def menu():
+
     print("Hier ist die Getränkekarte:")
     print("-----------------------------------")
     print("Nummer | Drinkname     | Preis | Alkoholgehalt(%) | Menge(cl)")
@@ -74,6 +116,9 @@ def bar(username, taschengeld, start_drinking):
                 print(dbtest.get_betrunkrnheit(username))
                 print("Du hast jetzt:", taschengeld, "moneten in der Tasche.")
 
+                random_events(username)
+                
+
 
 
 
@@ -98,5 +143,5 @@ if __name__ == "__main__":
    
     dbtest.update_betrunkenheit("1","50")
 
-    x,y = bar("1", "100", 1766769120)
+    x,y = bar("1", 100, 1766769120)
     
