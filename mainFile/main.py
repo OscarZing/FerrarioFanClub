@@ -8,9 +8,12 @@ import Bar
 logsecc=False
 taschengeld=100
 start_drinking = 0
-dbtest.show_table('user')
 
 dbtest.Start()
+
+dbtest.show_table('user')
+
+
 
 print("Willkommen im Ferrario Fan Club Casino!")
 
