@@ -5,7 +5,7 @@ import random
 def random_events(username):
     random_event = 100
     drunk = dbtest.get_betrunkrnheit(username)/100
-    print(drunk)
+    #print(drunk)
 
     random_zahl = random.randint(15,100)
     
@@ -17,7 +17,7 @@ def random_events(username):
     match random_event:
         
         case 0:
-            print("1")
+            print("Du wachst auf mit starken Kopfschmerzen und schaust dich um.","\n", "Du bist in einem ")
             random_event = 100
         case 1:
             print("2")

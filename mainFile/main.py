@@ -14,7 +14,6 @@ dbtest.Start()
 dbtest.show_table('user')
 
 
-
 print("Willkommen im Ferrario Fan Club Casino!")
 
 logopin=input("Möchtest du dich einloggen (l) oder registrieren (r)? ")
