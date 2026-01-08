@@ -2,7 +2,7 @@ import dbtest
 import time
 import random
 
-def random_events(username):
+def random_events(username, taschengeld):
     random_event = 100
     drunk = dbtest.get_betrunkrnheit(username)/100
     #print(drunk)
@@ -17,26 +17,39 @@ def random_events(username):
     match random_event:
         
         case 0:
-            print("Du wachst auf mit starken Kopfschmerzen und schaust dich um.","\n", "Du bist in einem ")
+            print("Du wachst auf, mit starken Kopfschmerzen und schaust dich um.","\n", "Du bist in einem Mülleimer aufgewacht, doch du bemerkst du hast 100 Moneten mehr in der Tasche.","\n","Du gest zurück ins Casino")
             random_event = 100
+            taschengeld += 100
+            return taschengeld, True
         case 1:
-            print("2")
+            print("Du wachst auf, mit starken Kopfschmerzen und schaust dich um.","\n", "Du liegst in einem umbekannten bett, und bemerkst das all dein Geld verschwunden ist.","\n","Du gest zurück ins Casino.")
+            taschengeld = 0
             random_event = 100
+            return taschengeld, True
         case 2:
-            print("3")
+            print("Du wachst auf, mit starken Kopfschmerzen und schaust dich um.","\n", "Du liegst in deinem Bett und entscheidest dich zurück ins Casino zu gehen")
             random_event = 100
+            return taschengeld, True
         case 3:
-            print("4")
+            print("Du wachst auf, mit starken Kopfschmerzen und schaust dich um.","\n", "Es scheint das du gestorben und in der Hölle gelandet bist.","\n","Du gest aber ein Deal mit dem Teufel ein und wirst wiederbelebt.","\n","Wär braucht Liebe wenn man auch Glückspiel hat oder?")
             random_event = 100
+            return taschengeld, True
         case 4:
-            print("5")
+            print("Du wachst auf, mit starken Kopfschmerzen und schaust dich um.","\n", "Du bist im Krankenhaus.","\n","Du gest zurück ins Casino")
+
             random_event = 100
+            return taschengeld, True
         case 5:
-            print("6")
+            print("Du wachst auf, mit starken Kopfschmerzen und schaust dich um.","\n", "Du bist zuhause, aber als du auf dein Handy schaust siehst du, dass du all deine Moneten, welche du im Konto hattest, Gespendet hast .","\n","Du gest zurück ins Casino")
+            dbtest.update_bank(username,-dbtest.get_balance(username))
             random_event = 100
+            return taschengeld, True
         case 6:
-            print("7")
+            print("Du wachst auf, mit starken Kopfschmerzen und schaust dich um.","\n", "Du bist zuhause, aber als du auf dein Handy schaust siehst du, dass Elon Musk dein Kontostand verdoppelt hat.","\n","Du gest zurück ins Casino")
+            dbtest.update_bank(username,dbtest.get_balance(username))
             random_event = 100
+            return taschengeld, True
+        
         case 7:
             print("8")
             random_event = 100
@@ -46,6 +59,7 @@ def random_events(username):
         case 9:
             print("10")
             random_event = 100
+    return taschengeld
     
 
 
@@ -65,6 +79,8 @@ def menu():
 
 
 def bar(username, taschengeld, start_drinking):
+    
+    case == False
 
 
     timecheck= int(time.time() - start_drinking)
@@ -116,7 +132,11 @@ def bar(username, taschengeld, start_drinking):
                 print(dbtest.get_betrunkrnheit(username))
                 print("Du hast jetzt:", taschengeld, "moneten in der Tasche.")
 
-                random_events(username)
+                taschengeld, case = random_events(username,)
+                if case == True:
+                    return taschengeld, start_drinking
+                else:
+                    pass
                 
 
 
@@ -141,7 +161,10 @@ def bar(username, taschengeld, start_drinking):
 
 if __name__ == "__main__":
    
-    dbtest.update_betrunkenheit("1","50")
+    '''dbtest.update_betrunkenheit("1","50")
 
-    x,y = bar("1", 100, 1766769120)
+    x,y = bar("1", 100, 1766769120)'''
+
+    print("Du wachst auf, mit starken Kopfschmerzen und schaust dich um.","\n", "Es scheint das du gestorben und in der Hölle gelandet bist.","\n","Du gest aber ein Deal mit dem Teufel ein und wirst wiederbelebt","\n","Wär braucht Liebe wenn man auch Glückspiel hat")
+
     
