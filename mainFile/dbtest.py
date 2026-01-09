@@ -201,10 +201,10 @@ if __name__ == "__main__":
     delete_table('drinks')
     create_table('drinks')
     insert_drink('1', 'Bier', '5', '4.8', '50')
-    insert_drink('2', 'Bier klein', '5', '4.8', '33')
+    insert_drink('2', 'Bier klein', '3', '4.8', '33')
     insert_drink('3', 'Wein', '7', '12.5', '10')
     insert_drink('4', 'Whisky', '15', '40.0', '2')
-    insert_drink('5', 'Wodka', '12', '37.5', '2')
+    insert_drink('5', 'Vodka', '12', '37.5', '2')
     insert_drink('6', 'cocktail', '10', '15.0', '10') 
     
     
