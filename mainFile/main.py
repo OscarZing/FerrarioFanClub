@@ -48,7 +48,7 @@ while True:
     if option == 'b':
         taschengeld = Bank.bank(username, taschengeld)
     
-    if option == "ba":
+    elif option == "ba":
         taschengeld, start_drinking = Bar.bar(username,taschengeld,start_drinking)
 
     elif option == 's':
@@ -56,3 +56,6 @@ while True:
 
     elif option == 'r':
         taschengeld = roulette(taschengeld)
+    
+    else: 
+        print("Ungültige Eingabe.")
