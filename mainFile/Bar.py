@@ -7,9 +7,8 @@ def random_events(username, taschengeld):
     drunk = dbtest.get_betrunkrnheit(username)/100
     #print(drunk)
 
-    random_zahl = random.randint(15,100)
+    random_zahl = random.randint(10,100)
     
-    print(random_zahl)
 
     if random_zahl < drunk:
         random_event = random.randint(0,9)
@@ -22,7 +21,7 @@ def random_events(username, taschengeld):
             taschengeld += 100
             return taschengeld, True
         case 1:
-            print("Du wachst auf, mit starken Kopfschmerzen und schaust dich um.","\n", "Du liegst in einem umbekannten bett, und bemerkst das all dein Geld verschwunden ist.","\n","Du gest zurück ins Casino.")
+            print("Du wachst auf, mit starken Kopfschmerzen und schaust dich um.","\n", "Du liegst in einem umbekannten Bett, und bemerkst das all dein Geld verschwunden ist.","\n","Du gest zurück ins Casino.")
             taschengeld = 0
             random_event = 100
             return taschengeld, True
@@ -31,7 +30,7 @@ def random_events(username, taschengeld):
             random_event = 100
             return taschengeld, True
         case 3:
-            print("Du wachst auf, mit starken Kopfschmerzen und schaust dich um.","\n", "Es scheint das du gestorben und in der Hölle gelandet bist.","\n","Du gest aber ein Deal mit dem Teufel ein und wirst wiederbelebt.","\n","Wär braucht Liebe wenn man auch Glückspiel hat oder?")
+            print("Du wachst auf, mit starken Kopfschmerzen und schaust dich um.","\n", "Es scheint das du gestorben und in der Hölle gelandet bist.","\n","Du gehst aber ein Deal mit dem Teufel ein und wirst wiederbelebt.","\n","Wer braucht Liebe und Gesundheit, wenn man auch Glückspiel hat oder?")
             random_event = 100
             return taschengeld, True
         case 4:
@@ -50,16 +49,8 @@ def random_events(username, taschengeld):
             random_event = 100
             return taschengeld, True
         
-        case 7:
-            print("8")
-            random_event = 100
-        case 8:
-            print("9")
-            random_event = 100
-        case 9:
-            print("10")
-            random_event = 100
-    return taschengeld
+        
+    return taschengeld, False
     
 
 
@@ -80,19 +71,19 @@ def menu():
 
 def bar(username, taschengeld, start_drinking):
     
-    case == False
+    case = False
 
 
     timecheck= int(time.time() - start_drinking)
 
-    print(timecheck)
+    #print(timecheck)
 
     while dbtest.get_betrunkrnheit(username) != 0:
                 
         dbtest.update_betrunkenheit(username,-1)
         timecheck-=1
-        print(dbtest.get_betrunkrnheit(username))
-        print(timecheck)
+        #print(dbtest.get_betrunkrnheit(username))
+        #print(timecheck)
 
         if dbtest.get_betrunkrnheit(username) == 0 or timecheck == 0:
             timecheck = 0
@@ -129,10 +120,9 @@ def bar(username, taschengeld, start_drinking):
                 alk = dbtest.get_alcohol_content(drinkwahl) * dbtest.get_volume(drinkwahl)
                 dbtest.update_betrunkenheit(username,alk)
                 start_drinking = int(time.time())
-                print(dbtest.get_betrunkrnheit(username))
                 print("Du hast jetzt:", taschengeld, "moneten in der Tasche.")
 
-                taschengeld, case = random_events(username,)
+                taschengeld, case = random_events(username,taschengeld)
                 if case == True:
                     return taschengeld, start_drinking
                 else:
@@ -161,10 +151,12 @@ def bar(username, taschengeld, start_drinking):
 
 if __name__ == "__main__":
    
+    
+    
+    
     '''dbtest.update_betrunkenheit("1","50")
 
     x,y = bar("1", 100, 1766769120)'''
 
-    print("Du wachst auf, mit starken Kopfschmerzen und schaust dich um.","\n", "Es scheint das du gestorben und in der Hölle gelandet bist.","\n","Du gest aber ein Deal mit dem Teufel ein und wirst wiederbelebt","\n","Wär braucht Liebe wenn man auch Glückspiel hat")
 
     

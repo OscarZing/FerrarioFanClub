@@ -11,7 +11,7 @@ start_drinking = 0
 
 dbtest.Start()
 
-dbtest.show_table('user')
+
 
 
 print("Willkommen im Ferrario Fan Club Casino!")

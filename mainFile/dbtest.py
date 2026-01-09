@@ -69,7 +69,6 @@ def insert_user(username, password):
         return
     else:
         a = "'"
-        print('INSERT INTO user (username, password) VALUES (' + a + username + a + ', ' + a + password + a + ')')
         c.execute('INSERT INTO user (username, password) VALUES (' + a + username + a + ', ' + a + password + a + ')')
         c.execute('INSERT INTO bank (user, kontostand) VALUES (' + a + username + a + ', 1000)')
         conn.commit()
